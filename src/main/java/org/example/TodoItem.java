@@ -1,6 +1,8 @@
 package org.example;
 
 
+import java.util.Date;
+
 /**
  * Класс задачи
  *
@@ -11,11 +13,21 @@ public class TodoItem {
   private Integer id;
   private String title;
   private boolean isCompleted;
+  private Date date;
 
-  public TodoItem(Integer id, String title, boolean isCompleted) {
+  public TodoItem(Integer id, String title, boolean isCompleted, Date date) {
     this.id = id;
     this.title = title;
     this.isCompleted = isCompleted;
+    this.date = date;
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public void setDate(Date date) {
+    this.date = date;
   }
 
   public Integer getId() {
