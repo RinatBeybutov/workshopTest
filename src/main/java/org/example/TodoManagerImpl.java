@@ -1,6 +1,7 @@
 package org.example;
 
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,8 +17,8 @@ public class TodoManagerImpl implements TodoManager {
   private int idCounter = 0;
 
   @Override
-  public void create(String title, boolean isCompleted) {
-    TodoItem todoItem = new TodoItem(idCounter, title, isCompleted);
+  public void create(String title, boolean isCompleted, Date date) {
+    TodoItem todoItem = new TodoItem(idCounter, title, isCompleted, date);
     idToTask.put(idCounter, todoItem);
     System.out.printf("Создана задача %s %n", title);
   }
