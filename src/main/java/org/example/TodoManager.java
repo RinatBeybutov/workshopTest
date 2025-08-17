@@ -13,4 +13,6 @@ public interface TodoManager {
   void create(String title, boolean isCompleted, Date date);
 
   void delete(int id);
+
+  void update(int id, String title, boolean isCompleted, Date date);
 }

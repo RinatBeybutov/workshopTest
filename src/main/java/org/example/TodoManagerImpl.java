@@ -29,6 +29,17 @@ public class TodoManagerImpl implements TodoManager {
       throw new RuntimeException("Задача не найдена!");
     }
     idToTask.remove(id);
-    System.out.printf("Задача с id %s удалена", id);
+    System.out.printf("Задача с id = %s удалена %n", id);
+  }
+
+  @Override
+  public void update(int id, String title, boolean isCompleted, Date date) {
+    if (!idToTask.containsKey(id)) {
+      throw new RuntimeException("Задача не найдена!");
+    }
+    TodoItem todoItem = idToTask.get(id);
+    todoItem.setTitle(title);
+    todoItem.setCompleted(isCompleted);
+    System.out.printf("Задача с id = %s обновлена %n", id);
   }
 }

@@ -10,6 +10,8 @@ public class Main {
 
     manager.create("первая задача", false, new Date());
 
+    manager.update(0, "Новая первая задача", true, new Date());
+
     manager.delete(0);
   }
 }
