@@ -11,14 +11,23 @@ import java.util.Map;
  */
 public class TodoManagerImpl implements TodoManager {
 
-  private Map<Integer, TodoItem> map = new HashMap<>();
+  private Map<Integer, TodoItem> idToTask = new HashMap<>();
 
   private int idCounter = 0;
 
   @Override
   public void create(String title, boolean isCompleted) {
     TodoItem todoItem = new TodoItem(idCounter, title, isCompleted);
-    map.put(idCounter, todoItem);
+    idToTask.put(idCounter, todoItem);
     System.out.printf("Создана задача %s %n", title);
+  }
+
+  @Override
+  public void delete(int id) {
+    if (!idToTask.containsKey(id)) {
+      throw new RuntimeException("Задача не найдена!");
+    }
+    idToTask.remove(id);
+    System.out.printf("Задача с id %s удалена", id);
   }
 }
